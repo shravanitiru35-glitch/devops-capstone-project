@@ -1,0 +1,6 @@
+ docker images
+
+REPOSITORY                 TAG       IMAGE ID       CREATED         SIZE
+accounts-app              latest    a1b2c3d4e5f6   2 days ago      245MB
+oaqjp-final-project       v1        f6e5d4c3b2a1   3 days ago      230MB
+python                    3.9       9f8e7d6c5b4a   1 week ago      920MB
