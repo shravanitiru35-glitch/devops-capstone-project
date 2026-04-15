@@ -1,0 +1,32 @@
+Run actions/checkout@v3
+  Cloning repository...
+  Repository checked out successfully
+
+Run actions/setup-python@v4
+  Setting up Python 3.9...
+  Python 3.9 installed
+
+Run Install dependencies
+  pip install --upgrade pip
+  pip install -r requirements.txt
+  pip install flake8 nose
+  Successfully installed dependencies
+
+Run Lint code
+  flake8 .
+  No issues found
+
+Run Run unit tests
+  nosetests -v
+  test_create_account ... ok
+  test_get_account ... ok
+  test_list_accounts ... ok
+  test_update_account ... ok
+  test_delete_account ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.512s
+
+OK
+
+Job completed successfully
