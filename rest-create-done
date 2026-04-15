@@ -1,0 +1,13 @@
+curl -X POST http://127.0.0.1:5000/accounts \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "John Doe",
+    "balance": 5000
+  }'
+
+{
+  "id": 1,
+  "name": "John Doe",
+  "balance": 5000,
+  "message": "Account created successfully"
+}
