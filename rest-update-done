@@ -1,0 +1,13 @@
+curl -X PUT "http://localhost:3000/accounts/1" \
+  -H "Content-Type: application/json" \
+  -d '{
+        "functions": ["deposit", "withdraw", "transfer", "loan"]
+      }'
+
+{
+  "id": 1,
+  "name": "John Doe",
+  "type": "savings",
+  "balance": 5000,
+  "functions": ["deposit", "withdraw", "transfer", "loan"]
+}
