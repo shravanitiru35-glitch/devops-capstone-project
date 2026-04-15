@@ -1,0 +1,11 @@
+{
+  "message": "Application successfully deployed",
+  "status": "running",
+  "service": "accounts-app",
+  "port": 8080,
+  "endpoints": [
+    "/",
+    "/health",
+    "/accounts"
+  ]
+}
