@@ -1,0 +1,6 @@
+curl -X DELETE "http://localhost:3000/accounts/1" \
+  -H "Content-Type: application/json"
+
+{
+  "message": "Account with id 1 deleted successfully"
+}
