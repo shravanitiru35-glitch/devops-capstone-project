@@ -1,6 +1,9 @@
-curl -X DELETE "http://localhost:3000/accounts/1" \
-  -H "Content-Type: application/json"
+curl -i -X DELETE "http://localhost:3000/accounts" \
+  -H "Content-Type: application/json" \
+  -d '{
+        "id": 1
+      }'
 
-{
-  "message": "Account with id 1 deleted successfully"
-}
+HTTP/1.1 204 NO CONTENT
+Content-Type: application/json
+Content-Length: 0
