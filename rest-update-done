@@ -1,13 +1,21 @@
-curl -X PUT "http://localhost:3000/accounts/1" \
+curl -i -X PUT "http://localhost:3000/accounts/1" \
   -H "Content-Type: application/json" \
   -d '{
-        "functions": ["deposit", "withdraw", "transfer", "loan"]
+        "name": "John Doe Updated",
+        "email": "johndoe.updated@example.com",
+        "address": "123 Updated Street, NC",
+        "phone": "9801234567"
       }'
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 180
 
 {
   "id": 1,
-  "name": "John Doe",
-  "type": "savings",
-  "balance": 5000,
-  "functions": ["deposit", "withdraw", "transfer", "loan"]
+  "name": "John Doe Updated",
+  "email": "johndoe.updated@example.com",
+  "address": "123 Updated Street, NC",
+  "phone": "9801234567",
+  "functions": ["deposit", "withdraw", "transfer"]
 }
