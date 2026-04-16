@@ -1,4 +1,4 @@
-name: CI Pipeline
+name: CI Build Pipeline
 
 on:
   push:
@@ -10,30 +10,49 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres:13
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: testdb
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd="pg_isready -U postgres"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
+    env:
+      DATABASE_URL: postgres://postgres:postgres@localhost:5432/testdb
+
     steps:
-      # Step 1: Checkout the code
+      # Checkout code
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Step 2: Set up Python
+      # Set up Python
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.9'
 
-      # Step 3: Install dependencies
+      # Install dependencies
       - name: Install dependencies
         run: |
           pip install --upgrade pip
           pip install -r requirements.txt
           pip install flake8 nose
 
-      # Step 4: Lint the code
+      # Lint code
       - name: Lint code
         run: |
           flake8 .
 
-      # Step 5: Run unit tests using nosetests
+      # Run unit tests
       - name: Run unit tests
         run: |
-          nosetests -v
+          nosetests -v --with-xunit --with-coverage --cover-package=service
+      
